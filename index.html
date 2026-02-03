@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barakallah fii Umrik!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    .font-pacifico {
+      font-family: 'Pacifico', cursive;
+    }
+    
+    .font-quicksand {
+      font-family: 'Quicksand', sans-serif;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    
+    @keyframes float-reverse {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(-5deg); }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.8)); }
+      50% { filter: drop-shadow(0 0 25px rgba(255, 105, 180, 0.9)); }
+    }
+    
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1) rotate(180deg); }
+    }
+    
+    @keyframes confetti-fall {
+      0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+    
+    @keyframes bounce-in {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px) rotate(-5deg); }
+      75% { transform: translateX(5px) rotate(5deg); }
+    }
+    
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .animate-float-reverse {
+      animation: float-reverse 4s ease-in-out infinite;
+    }
+    
+    .animate-pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    .animate-bounce-in {
+      animation: bounce-in 0.6s ease-out forwards;
+    }
+    
+    .animate-shake {
+      animation: shake 0.5s ease-in-out;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(-45deg, #ff6b9d, #c44569, #ff8a5c, #ffc371);
+      background-size: 400% 400%;
+      animation: gradient-shift 8s ease infinite;
+    }
+    
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      animation: confetti-fall linear forwards;
+      pointer-events: none;
+      z-index: 100;
+    }
+    
+    .sparkle {
+      position: absolute;
+      animation: sparkle 1.5s ease-in-out infinite;
+    }
+    
+    .cake-container:hover .cake-body {
+      animation: shake 0.5s ease-in-out;
+    }
+    
+    .candle-flame {
+      animation: pulse-glow 1s ease-in-out infinite;
+    }
+    
+    .countdown-digit {
+      background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1), inset 0 2px 4px rgba(255,255,255,0.8);
+    }
+    
+    .gift-box {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .gift-box:hover {
+      transform: scale(1.1);
+    }
+    
+    .message-card {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.9);
+    }
+    
+    .hidden-message {
+      display: none;
+    }
+    
+    .hidden-message.show {
+      display: block;
+      animation: bounce-in 0.5s ease-out forwards;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-quicksand">
+  <div id="app-wrapper" class="h-full w-full gradient-bg overflow-auto">
+   <div class="min-h-full w-full flex flex-col items-center justify-center p-4 md:p-8 relative"><!-- Floating Decorations -->
+    <div class="absolute top-10 left-10 animate-float">
+     <svg width="60" height="60" viewbox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#FFD700" opacity="0.3" /> <text x="30" y="38" text-anchor="middle" font-size="30">
+       🎈
+      </text>
+     </svg>
+    </div>
+    <div class="absolute top-20 right-16 animate-float-reverse">
+     <svg width="50" height="50" viewbox="0 0 50 50"><text x="25" y="35" text-anchor="middle" font-size="35">
+       🎉
+      </text>
+     </svg>
+    </div>
+    <div class="absolute bottom-20 left-16 animate-float">
+     <svg width="50" height="50" viewbox="0 0 50 50"><text x="25" y="35" text-anchor="middle" font-size="35">
+       🎊
+      </text>
+     </svg>
+    </div>
+    <div class="absolute bottom-32 right-10 animate-float-reverse">
+     <svg width="55" height="55" viewbox="0 0 55 55"><text x="27" y="38" text-anchor="middle" font-size="38">
+       ⭐
+      </text>
+     </svg>
+    </div><!-- Sparkles -->
+    <div class="sparkle top-1/4 left-1/4" style="animation-delay: 0s;">
+     ✨
+    </div>
+    <div class="sparkle top-1/3 right-1/4" style="animation-delay: 0.5s;">
+     ✨
+    </div>
+    <div class="sparkle bottom-1/4 left-1/3" style="animation-delay: 1s;">
+     ✨
+    </div><!-- Main Content -->
+    <div class="max-w-2xl w-full text-center space-y-8"><!-- Birthday Cake SVG -->
+     <div class="cake-container flex justify-center mb-6">
+      <svg width="200" height="180" viewbox="0 0 200 180" class="cake-body animate-pulse-glow"><!-- Plate --> <ellipse cx="100" cy="165" rx="90" ry="12" fill="#d4a574" /> <ellipse cx="100" cy="162" rx="85" ry="10" fill="#e8c9a0" /> <!-- Bottom Layer --> <rect x="30" y="120" width="140" height="45" rx="8" fill="#ff85a2" /> <rect x="30" y="120" width="140" height="15" rx="8" fill="#ffb3c6" /> <!-- Middle Layer --> <rect x="45" y="80" width="110" height="45" rx="6" fill="#ffd700" /> <rect x="45" y="80" width="110" height="12" rx="6" fill="#ffe44d" /> <!-- Top Layer --> <rect x="60" y="45" width="80" height="40" rx="5" fill="#87ceeb" /> <rect x="60" y="45" width="80" height="10" rx="5" fill="#b0e2ff" /> <!-- Frosting Drips --> <path d="M45 80 Q50 95 45 95 Q40 95 45 80" fill="#ffe44d" /> <path d="M85 80 Q90 100 85 100 Q80 100 85 80" fill="#ffe44d" /> <path d="M125 80 Q130 92 125 92 Q120 92 125 80" fill="#ffe44d" /> <path d="M155 80 Q160 90 155 90 Q150 90 155 80" fill="#ffe44d" /> <!-- Candles --> <rect x="75" y="20" width="6" height="28" rx="2" fill="#ff6b9d" /> <rect x="97" y="15" width="6" height="33" rx="2" fill="#9370db" /> <rect x="119" y="20" width="6" height="28" rx="2" fill="#20b2aa" /> <!-- Flames --> <ellipse cx="78" cy="15" rx="5" ry="8" fill="#ffa500" class="candle-flame" /> <ellipse cx="78" cy="14" rx="3" ry="5" fill="#ffff00" /> <ellipse cx="100" cy="10" rx="5" ry="8" fill="#ffa500" class="candle-flame" style="animation-delay: 0.3s;" /> <ellipse cx="100" cy="9" rx="3" ry="5" fill="#ffff00" /> <ellipse cx="122" cy="15" rx="5" ry="8" fill="#ffa500" class="candle-flame" style="animation-delay: 0.6s;" /> <ellipse cx="122" cy="14" rx="3" ry="5" fill="#ffff00" /> <!-- Decorations --> <circle cx="50" cy="140" r="4" fill="#fff" /> <circle cx="70" cy="135" r="3" fill="#ff6b9d" /> <circle cx="90" cy="142" r="4" fill="#fff" /> <circle cx="110" cy="135" r="3" fill="#ffd700" /> <circle cx="130" cy="140" r="4" fill="#fff" /> <circle cx="150" cy="137" r="3" fill="#87ceeb" />
+      </svg>
+     </div><!-- Title -->
+     <h1 id="main-title" class="font-pacifico text-5xl md:text-6xl text-white drop-shadow-lg">Barakallah fii Umrik!</h1><!-- Recipient Name -->
+     <h2 id="recipient-name" class="font-pacifico text-3xl md:text-4xl text-yellow-200 drop-shadow-md animate-bounce-in">Naaaadddd!</h2><!-- Countdown Timer -->
+     <div class="message-card rounded-2xl p-6 shadow-xl mx-auto max-w-lg">
+      <p class="text-gray-600 font-semibold mb-4 text-lg">⏰ Hitung Mundur Menuju Hari Spesial</p>
+      <p class="text-xl font-bold bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent mb-4 drop-shadow-md">28 Februari 2026</p>
+      <div class="grid grid-cols-4 gap-3">
+       <div class="countdown-digit p-3"><span id="days" class="text-3xl md:text-4xl font-bold text-pink-600">000</span>
+        <p class="text-xs text-gray-500 mt-1">Hari</p>
+       </div>
+       <div class="countdown-digit p-3"><span id="hours" class="text-3xl md:text-4xl font-bold text-purple-600">00</span>
+        <p class="text-xs text-gray-500 mt-1">Jam</p>
+       </div>
+       <div class="countdown-digit p-3"><span id="minutes" class="text-3xl md:text-4xl font-bold text-blue-600">00</span>
+        <p class="text-xs text-gray-500 mt-1">Menit</p>
+       </div>
+       <div class="countdown-digit p-3"><span id="seconds" class="text-3xl md:text-4xl font-bold text-teal-600">00</span>
+        <p class="text-xs text-gray-500 mt-1">Detik</p>
+       </div>
+      </div>
+     </div><!-- Message Card -->
+     <div class="message-card rounded-2xl p-6 shadow-xl space-y-4">
+      <p id="main-message" class="text-gray-700 text-lg leading-relaxed">Di hari istimewa ini, semoga semua impian dan harapan nad menjadi kenyataan yang di ridhoi Allah. Makasih banyak udah mau jadi temen kotek dari masa-masa mondok sampai sekarang! 💕</p>
+      <div class="border-t border-pink-200 pt-4">
+       <p id="wish-message" class="text-pink-600 font-semibold italic">"Semoga tahun ini dipenuhi kebahagiaan, kesehatan, dan kesuksesan yang luar biasa!"</p>
+      </div>
+     </div><!-- Interactive Gift Box -->
+     <div class="flex flex-col items-center space-y-4">
+      <p class="text-white text-sm">🎁 Klik hadiah untuk kejutan!</p>
+      <div id="gift-box" class="gift-box">
+       <svg width="100" height="100" viewbox="0 0 100 100"><!-- Box --> <rect x="15" y="40" width="70" height="50" rx="5" fill="#ff6b9d" /> <rect x="15" y="40" width="70" height="10" fill="#ff85a2" /> <!-- Lid --> <rect id="gift-lid" x="10" y="25" width="80" height="20" rx="5" fill="#c44569" style="transform-origin: center; transition: transform 0.5s ease;" /> <!-- Ribbon Vertical --> <rect x="43" y="25" width="14" height="65" fill="#ffd700" /> <!-- Ribbon Horizontal --> <rect x="10" y="32" width="80" height="10" fill="#ffd700" /> <!-- Bow --> <ellipse cx="50" cy="25" rx="15" ry="10" fill="#ffd700" /> <ellipse cx="35" cy="20" rx="12" ry="8" fill="#ffd700" /> <ellipse cx="65" cy="20" rx="12" ry="8" fill="#ffd700" /> <circle cx="50" cy="23" r="5" fill="#ffaa00" />
+       </svg>
+      </div>
+      <div id="hidden-message" class="hidden-message message-card rounded-xl p-4 max-w-md">
+       <p class="text-2xl mb-2">🎊🎉🥳</p>
+       <p class="text-gray-700 font-semibold">Kamu adalah orang yang luar biasa!</p>
+       <p class="text-pink-600 text-sm mt-2">Teruslah bersinar dan menginspirasi! ✨</p>
+      </div>
+     </div><!-- Blow Candles Button --> <button id="blow-btn" class="bg-white/90 hover:bg-white text-pink-600 font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300"> 🕯️ Tiup Lilinnya! </button> <!-- Footer -->
+     <p class="text-white/80 text-sm mt-8">Dibuat dengan 💖 buat nad</p>
+    </div>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      recipient_name: 'Naaaadddd',
+      main_message: 'Di hari istimewa ini, semoga semua impian dan harapan nad menjadi kenyataan yang di ridhoi Allah. Makasih banyak udah mau jadi temen kotek dari masa-masa mondok sampai sekarang! 💕',
+      wish_message: 'Semoga tahun ini dipenuhi kebahagiaan, kesehatan, dan kesuksesan yang luar biasa!',
+      primary_color: '#ff6b9d',
+      secondary_color: '#c44569',
+      text_color: '#374151',
+      accent_color: '#ffd700',
+      background_color: '#ff8a5c',
+      font_family: 'Quicksand',
+      font_size: 16
+    };
+    
+    // Countdown Timer
+    const targetDate = new Date('2026-02-28T00:00:00').getTime();
+    
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = String(days).padStart(3, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+      } else {
+        document.getElementById('days').textContent = '🎉';
+        document.getElementById('hours').textContent = '🎂';
+        document.getElementById('minutes').textContent = '🎈';
+        document.getElementById('seconds').textContent = '🥳';
+        createConfetti(50);
+      }
+    }
+    
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+    
+    // Gift Box Interaction
+    let giftOpened = false;
+    document.getElementById('gift-box').addEventListener('click', function() {
+      const hiddenMessage = document.getElementById('hidden-message');
+      const lid = document.getElementById('gift-lid');
+      
+      if (!giftOpened) {
+        lid.style.transform = 'translateY(-20px) rotate(-30deg)';
+        hiddenMessage.classList.add('show');
+        createConfetti(30);
+        giftOpened = true;
+      } else {
+        lid.style.transform = 'translateY(0) rotate(0deg)';
+        hiddenMessage.classList.remove('show');
+        giftOpened = false;
+      }
+    });
+    
+    // Blow Candles - Create Confetti
+    function createConfetti(count) {
+      const colors = ['#ff6b9d', '#ffd700', '#87ceeb', '#ff85a2', '#9370db', '#20b2aa', '#ffa500'];
+      const shapes = ['■', '●', '▲', '♦', '★'];
+      
+      for (let i = 0; i < count; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        confetti.style.animationDelay = Math.random() * 0.5 + 's';
+        confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+        confetti.style.fontSize = (Math.random() * 15 + 10) + 'px';
+        confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+        document.body.appendChild(confetti);
+        
+        setTimeout(() => confetti.remove(), 5000);
+      }
+    }
+    
+    document.getElementById('blow-btn').addEventListener('click', function() {
+      createConfetti(50);
+      this.textContent = '🎉 Barakallah fii Umrik! 🎉';
+      this.classList.add('animate-shake');
+      setTimeout(() => {
+        this.classList.remove('animate-shake');
+        this.textContent = '🕯️ Tiup Lilinnya!';
+      }, 2000);
+    });
+    
+    // Element SDK Implementation
+    async function onConfigChange(config) {
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseSize = config.font_size || defaultConfig.font_size;
+      const baseFontStack = 'Quicksand, sans-serif';
+      
+      // Update text content
+      document.getElementById('recipient-name').textContent = config.recipient_name || defaultConfig.recipient_name;
+      document.getElementById('main-message').textContent = config.main_message || defaultConfig.main_message;
+      document.getElementById('wish-message').textContent = '"' + (config.wish_message || defaultConfig.wish_message) + '"';
+      
+      // Apply font family
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      
+      // Apply font sizes proportionally
+      document.getElementById('main-title').style.fontSize = `${baseSize * 3}px`;
+      document.getElementById('recipient-name').style.fontSize = `${baseSize * 2}px`;
+      document.getElementById('main-message').style.fontSize = `${baseSize * 1.1}px`;
+      document.getElementById('wish-message').style.fontSize = `${baseSize}px`;
+      
+      // Apply colors
+      const primaryColor = config.primary_color || defaultConfig.primary_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      
+      document.getElementById('main-message').style.color = textColor;
+      document.getElementById('wish-message').style.color = primaryColor;
+      document.getElementById('blow-btn').style.color = primaryColor;
+      document.getElementById('recipient-name').style.color = accentColor;
+    }
+    
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_color || defaultConfig.secondary_color,
+            set: (value) => {
+              config.secondary_color = value;
+              window.elementSdk.setConfig({ secondary_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              config.primary_color = value;
+              window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+    
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['recipient_name', config.recipient_name || defaultConfig.recipient_name],
+        ['main_message', config.main_message || defaultConfig.main_message],
+        ['wish_message', config.wish_message || defaultConfig.wish_message]
+      ]);
+    }
+    
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c7e9baad5a7d4a5',t:'MTc3MDA4Njg5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
